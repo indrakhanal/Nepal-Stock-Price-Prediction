@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stock Price prediction</title>
+
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename="/css/bootstrap.min.css")}}>
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename="/css/animate.css")}}>
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename="/css/font-awesome.min.css")}}>
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename="/css/owl.carousel.css")}}>
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename="/css/owl.theme.default.min.css")}}>
+    <link rel="stylesheet" type="text/css" href={{url_for('static', filename="/css/tooplate-style.css")}}>
+</head>
+<body>
+<section id="about">
+    <div class="container">
+        <div class="col-md-6 col-sm-6">
+            <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
+                <h3 style="color:white; background: blue; ">Nepal Stock Prediction System</h3>
+            </div>
+            <div class="col-md-12 col-sm-6">
+                <h4 style="color: white; background: black">In this section you can predict final closing price of every script
+                    Note: This will not give the exactly result but it will predict the closing price of script based on
+                    previous data that have been trained as a model
+                    </h4>
+                <h3 style="color: red"> *** You have to choose the script in your own risk ****</h3>
+                <h4 style="color: darkred">Have Fun and ENJOY!!</h4><hr/>
+            </div>
+            <form id="cric-info" role="form" name="cricket" method="post" action="/score/">
+                <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
+                </div>
+
+                <div class="wow fadeInUp" data-wow-delay="0.8s">
+                    <div class="col-md-6 col-sm-6">
+                        <label style="color:white;" for="bat">Select The Script You Want to Predict</label>
+                        <select class="form-control" id="bat" name="script">
+                            {% for item in context%}
+                            <option value={{item}}>{{item}}</option>
+                            {%endfor%}
+                        </select>
+                    </div><br><br>
+
+                    <div class="col-md-12 col-sm-12">
+                        <label style="color:white;" for="run">Enter today's opening Price</label>
+                        <input type="text" class="form-control" id="run" name="open" placeholder="today's opening price">
+                    </div><br><br>
+
+                    <div class="col-md-12 col-sm-12">
+                        <label style="color:white;" for="wkt">Enter Current D-High Price </label>
+                        <input type="text" class="form-control" id="wkt" name="high" placeholder="D-highest till now">
+                    </div><br><br>
+
+                    <div class="col-md-12 col-sm-12">
+                        <label style="color:white;" for="over">Enter Current D-Low Price</label>
+                        <input type="text" class="form-control" id="over" name="low" placeholder="D-lowest till now">
+                    </div><br><br>
+			<hr/>
+                    <div class="col-md-12 col-sm-12">
+                        <button type="submit" class="btn btn-danger" id="cf-submit" name="submit">Predict Score</button>
+                    </div>
+                    <br><br>
+                    <h5  style="color: red">*** Note: This model is based on 2008 to 2018 datas and maynot predict accurate price ***</h5>
+                </div>
+            </form>
+        </div>
+<!--        {% if message %}-->
+<!--        <h3 style="color: white; background: black">The Final Closing Price According to Current Market price</h3><br>-->
+<!--        <h3 style="color: white; background: black">{{ message }}</h3>-->
+<!--        {% endif %}<hr/>-->
+<!--        {% if context %}-->
+<!--        <h3 style="color: darkblue">{{context}}</h3>-->
+<!--        {% endif %}-->
+    </div>
+</section>
+</body>
+</html>

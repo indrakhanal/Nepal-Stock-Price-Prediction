@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+{% if message %}
+<h3>The Final Closing Price According to Current Market price
+Will be Around
+</h3><br>
+<h1 style=color:darkgreen;>{{ message }}</h3>
+{% endif %}
+    {%if error%}
+    <h3 style="color: red">{{error}}</h3>
+    {%endif%}
+    <hr/>
+
+<a href="/">Back Home</a>
+</body>
+</html>
